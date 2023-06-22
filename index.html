@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КТ3.12RRR</title>
+  <style>
+    ul.new-menu {
+      padding: 0;
+      width: 400px;
+    }
+    ul.new-submenu {
+      display: none;
+      padding-left: 20px;
+    }
+    ul.new-menu li {
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+    }
+    ul.new-menu li a {
+      display: block;
+      text-decoration: none;
+      padding: 10px;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    ul.new-menu li a:hover {
+      color: white;
+      background-color: #222;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <ul class="new-menu">
+    <li>
+      <a href="#">Дьявольские фрукты</a>
+      <ul class="new-submenu">
+        <li>
+          <a href="#">Логия</a>
+          <ul class="new-submenu">
+            <li><a href="#">Мэра Мэра но Ми</a></li>
+            <li><a href="#">Ями Ями но Ми</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Парамеция</a>
+          <ul class="new-submenu">
+            <li><a href="#">Опэ Опэ но Ми</a></li>
+            <li><a href="#">Гору Гору но Ми</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Зоан</a>
+          <ul class="new-submenu">
+            <li><a href="#">Хито Хито но ми, модель: Ника</a></li>
+            <li><a href="#">Уо Уо но Ми, модель: Сэйрю</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Пиратские команды</a>
+      <ul class="new-submenu">
+        <li>
+          <a href="#">Пираты Соломенной Шляпы</a>
+          <ul class="new-submenu">
+            <li><a href="#">Монки Д. Луффи</a></li>
+            <li><a href="#">Ророноа Зоро</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Пираты Биг Мам</a>
+          <ul class="new-submenu">
+            <li><a href="#">Шарлотта Линлин</a></li>
+            <li><a href="#">Шарлотта Катакури</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Звери Пираты</a>
+          <ul class="new-submenu">
+            <li><a href="#">Кайдо</a></li>
+            <li><a href="#">Кинг</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <script>
+    let submenus = document.getElementsByClassName('new-submenu');
+    for (let i = 0; i < submenus.length; i++) {
+      let submenu = submenus[i];
+      submenu.parentElement.addEventListener('click', function(e) {
+        e.stopPropagation();
+        let clickedElement = this;
+        let subMenuElement = clickedElement.getElementsByClassName('new-submenu')[0];
+        if (subMenuElement) {
+          if (subMenuElement.style.display === 'block') {
+            subMenuElement.style.display = 'none';
+          } else {
+            subMenuElement.style.display = 'block';
+          }
+        } else {
+          let link = clickedElement.getElementsByTagName('a')[0];
+          let url = link.getAttribute('href');
+          window.location.href = url;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
